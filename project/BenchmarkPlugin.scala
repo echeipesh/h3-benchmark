@@ -33,7 +33,7 @@ import scala.util.matching.Regex
  *   sfitch
  * @since 9/8/17
  */
-object GTBenchmarkPlugin extends AutoPlugin {
+object BenchmarkPlugin extends AutoPlugin {
   override def trigger = NoTrigger
 
   override def requires: Plugins = JmhPlugin

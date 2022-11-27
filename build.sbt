@@ -1,8 +1,8 @@
-name               := "specialization-benchmark"
+name               := "h3-benchmark"
 version            := "0.1.0-SNAPSHOT"
 scalaVersion       := "2.12.15"
-crossScalaVersions := List("2.12.15", "2.13.7")
-organization       := "com.pomadchin"
+crossScalaVersions := List("2.12.15")
+organization       := "net.chugun"
 scalacOptions ++= Seq(
   "-deprecation",
   "-unchecked",
@@ -17,8 +17,12 @@ scalacOptions ++= Seq(
 fork := true
 
 enablePlugins(JmhPlugin)
-enablePlugins(GTBenchmarkPlugin)
+enablePlugins(BenchmarkPlugin)
 
 jmhIterations   := Some(5)
 jmhTimeUnit     := None // Each benchmark should determing the appropriate time unit.
 jmhExtraOptions := Some("-jvmArgsAppend -Xmx8G -prof jfr")
+
+libraryDependencies ++= List(
+    "com.uber" % "h3" % "4.0.0"
+)
